@@ -77,6 +77,8 @@ const MyLazyload: FC<MyLazyloadProps> = (props) => {
     if (node instanceof HTMLElement) {
       elementObserver.current.observe(node);
     }
+
+    // 组件卸载的时候取消监听
     return () => {
       if (node && node instanceof HTMLElement) {
         elementObserver.current?.unobserve(node);
