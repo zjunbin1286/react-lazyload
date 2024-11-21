@@ -1,35 +1,71 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import img1 from './assets/1.png';
+import img2 from './assets/2.png';
+// import LazyLoad from 'react-lazyload';
+import LazyLoad from './MyLazyLoad';
 
-function App() {
-  const [count, setCount] = useState(0)
+// import() 包裹的模块会单独打包，然后 React.lazy 是用到这个组件的时候才去加载。
+const LazyTest = React.lazy(() => import('./Test'));
 
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+    <div>
+      {/* <LazyTest /> */}
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <LazyLoad placeholder={<div>loading...</div>} onContentVisible={() => {
+        console.log('组件显示')
+      }}>
+        {/* <img src={img1} style={{ width: 500 }} /> */}
+        <LazyTest />
+      </LazyLoad>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <p>xxxxxx</p>
+      <LazyLoad placeholder={<div>loading...</div>} onContentVisible={() => {
+        console.log('图片显示')
+      }}>
+        <img src={img2} style={{ width: 500 }} />
+      </LazyLoad>
+    </div>
+  );
+};
